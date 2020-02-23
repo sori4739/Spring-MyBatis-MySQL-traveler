@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  datasource:
+    url: jdbc:mysql://ec2-52-79-240-189.ap-northeast-2.compute.amazonaws.com:3306/traveler?serverTimezone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: traveler
+    password: bitc5600
+    
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true 
+      
+
+
+  

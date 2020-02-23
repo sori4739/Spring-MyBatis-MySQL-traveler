@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.app.repository.BlogRepository">
+
+	<insert id="save">
+		INSERT INTO blog(title,link,description,bloggername,previewImg,tourId) VALUES(#{title},#{link},#{description},#{bloggername},#{previewImg},#{tourId})
+	</insert>
+	
+	<select id="findByTourId" resultType="com.traveler.app.model.Blog">
+		SELECT * FROM blog WHERE tourId = #{tourId}
+	</select>
+	
+	<select id="findById" resultType="com.traveler.app.model.Blog">
+		SELECT * FROM blog WHERE id = #{id}
+	</select>
+	
+</mapper>

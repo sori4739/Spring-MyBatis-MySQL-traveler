@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.app.repository.KeepRepository">
+
+	<insert id="save">
+		INSERT INTO keep(userId,blogId) VALUES(#{userId},#{blogId})
+	</insert>
+	
+	<select id="findByUserId" resultType="com.traveler.app.model.Keep">
+		SELECT * FROM keep WHERE userId = #{userId}
+	</select>
+
+	<delete id="delete">
+		DELETE FROM keep WHERE userId=#{userId} AND blogId=#{blogId}
+	</delete>
+	
+	<select id="findAll" resultType="com.traveler.app.model.Keep">
+		SELECT * FROM keep
+	</select>
+</mapper>

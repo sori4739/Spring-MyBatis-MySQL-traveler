@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.app.repository.TourRepository">
+
+  <select id="findByCityId" resultType="com.traveler.app.model.Tour">
+    SELECT * FROM tour WHERE cityId = #{id} 
+  </select>
+  
+  <select id="findByAll" resultType="com.traveler.app.model.Tour">
+    SELECT * FROM tour 
+  </select>
+  
+</mapper>

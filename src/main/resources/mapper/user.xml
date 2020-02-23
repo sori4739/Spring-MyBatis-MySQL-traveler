@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.app.repository.UserRepository">
+
+  <select id="findByUsername" resultType="com.traveler.app.model.User">
+    SELECT * FROM user WHERE username = #{username}
+  </select>
+  <insert id="save">
+  	INSERT INTO user(username, password, email, createDate) VALUES (#{username}, #{password}, #{email}, now())
+  </insert>
+  <update id="update">
+  	UPDATE user SET name = #{name}, phone=#{phone} , profileImg = #{profileImg} WHERE id = #{id}
+  </update>
+  
+</mapper>

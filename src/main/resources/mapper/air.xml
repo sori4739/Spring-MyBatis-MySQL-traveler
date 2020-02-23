@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traveler.app.repository.AirRepository">
+
+	<insert id="save">
+		INSERT INTO
+		airticket(airlineNm,depAirportNm,arrAirportNm,depTime,arrTime,economyCharge,userId)
+		VALUES(#{airlineNm},#{depAirportNm},#{arrAirportNm},#{depTime},#{arrTime},#{economyCharge},#{userId})
+	</insert>
+
+	<delete id="deleteByUserId">
+		DELETE FROM airticket WHERE id = (SELECT * FROM
+		(SELECT max(id) FROM airticket WHERE userId=#{userId}) TMP);
+	</delete>
+
+	<select id="findByUserId"
+		resultType="com.traveler.app.model.AirItem">
+		SELECT * FROM airticket WHERE userId = #{userId}
+	</select>
+
+	<delete id="delete">
+		DELETE FROM airticket WHERE id = ${id}
+	</delete>
+	
+</mapper>
